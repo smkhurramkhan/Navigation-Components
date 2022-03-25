@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/firstFragment"
+    android:id="@+id/navigation">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.example.navigationcomponents.fragments.FirstFragment"
+        android:label="First Fragment"
+        tools:layout="@layout/first_fragment" >
+        <action
+            android:id="@+id/action_first_To_second"
+            app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.example.navigationcomponents.fragments.SecondFragment"
+        android:label="Second Fragment"
+        tools:layout="@layout/second_fragment" >
+        <action
+            android:id="@+id/second_to_Third"
+            app:destination="@id/thirdFragment"
+            app:popUpTo="@id/firstFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.example.navigationcomponents.fragments.ThirdFragment"
+        android:label="Third Fragment"
+        tools:layout="@layout/third_fragment" >
+        <action
+            android:id="@+id/third_to_first"
+            app:destination="@id/firstFragment"
+            app:popUpTo="@id/secondFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+
+</navigation>
